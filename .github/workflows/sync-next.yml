@@ -14,12 +14,9 @@ jobs:
           route: POST /repos/{owner}/{repo}/pulls
           owner: uzlopak
           repo: test-auto-sync
-          body: |
-            "{
-              \"title\": \"Sync next with main\",
-              \"body\": \"Syncing of the next with latest changes in main\",
-              \"head\": \"main\",
-              \"base\":\"next\"
-            }"
+          title: Sync next with main
+          body: Syncing of the next with latest changes in main
+          head: main
+          base: next
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
