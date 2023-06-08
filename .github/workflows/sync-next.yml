@@ -21,5 +21,7 @@ jobs:
               \"head\": \"main\",
               \"base\":\"next\"
             }"
+          mediaType: | # The | is significant!
+            format: raw
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
