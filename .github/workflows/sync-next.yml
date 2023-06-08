@@ -11,9 +11,9 @@ jobs:
       - uses: octokit/request-action@v2.x
         id: create-pull-request
         with:
-          route: POST /repos/{owner}/{repo}/pull
-          owner: fastify
-          repo: fastify
+          route: POST /repos/{owner}/{repo}/pulls
+          owner: uzlopak
+          repo: test-auto-sync
           body: |
             "{
               \"title\": \"Sync next with main\",
