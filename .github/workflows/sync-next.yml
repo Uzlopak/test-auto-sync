@@ -1,0 +1,25 @@
+name: Sync next branch with main
+on:
+  workflow_dispatch:
+  schedule:
+    - cron:  '0 8 * * 1'
+
+permissions:
+  pull-requests: write
+
+jobs:
+  create-pull-request:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: octokit/request-action@v2.x
+        id: create-pull-request
+        with:
+          route: POST /repos/{owner}/{repo}/pulls
+          owner: uzlopak
+          repo: test-auto-sync
+          title: Sync next with main
+          body: Syncing of the next with latest changes in main
+          head: main
+          base: next
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
